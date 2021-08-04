@@ -73,7 +73,7 @@ function paktolus_plugin_css_jsscripts() {
 function price_quote_display () {
   ?>
      <div class="container">
-            <h2 style="text-align:center;">Hippo Plugin Form</h2>
+            <h2 style="text-align:center; margin-top:60px;">Hippo Plugin Form</h2>
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
@@ -83,10 +83,34 @@ function price_quote_display () {
                     <strong id="formsuccess"></strong> We will contact you soon...
                 </div>
                 
-                    
-                    <form action="https://api.staging.myhippo.io/v1/herd/quote?" method="GET" role="form">
+                    <div>
+                      <h3  style="display:none;" id="final_text">Your Quote Premium is <span  style="color:#89bf4d"><b id="quote_final"></b></span></h3>
+                    <table id="res_tab" style="display:none;" class="table table-striped">
+  
+    <tbody>
+      <tr>
+        <td>Quote Url</td>
+        <td id="hippi_quote_url"></td>
+      </tr>
+      <tr>
+        <td>Coverage</td>
+        <td id="hippi_coverage"></td>
+      </tr>
+      <tr>
+        <td>Quote Premium</td>
+        <td id="hippi_premium"></td>
+      </tr>
+      <tr>
+        <td>Quote ID</td>
+        <td id="hippi_id" ></td>
+      </tr>
+    </tbody>
+  </table>
+                    </div> 
+                    <!-- <form action="https://api.staging.myhippo.io/v1/herd/quote?" method="GET" role="form"> -->
+                      <form action="" method="GET" id="form_hippo_main" role="form">
                        
-                    <input type='hidden' name="auth_token" value="zcXbR1NoE0zoozyuqAa75s5gBATbeiUsbkGhvb5toGiNWUdDjIUkAU5XgDwCRTet">
+                    <input type='hidden' id="auth_token" name="auth_token" value="zcXbR1NoE0zoozyuqAa75s5gBATbeiUsbkGhvb5toGiNWUdDjIUkAU5XgDwCRTet">
                         <div class="form-group" style="margin-top:15px;">
                             <label for=""><strong>Firstname</strong></label>
                             <input type="text" class="form-control" name="first_name" id="fname" placeholder="Please enter your first name"required="required">
@@ -105,7 +129,7 @@ function price_quote_display () {
 
                         <div class="form-group" style="margin-top:15px;">
                             <label for=""><strong>Street Address</strong></label>
-                            <input type="text" class="form-control" name="street" id="streetaddress" placeholder="Please enter your street address" required="required">
+                            <input type="text" class="form-control" name="street" id="streetaddress" placeholder="Please enter your street ddress" required="required">
                         </div>
 
                         <div class="form-group" style="margin-top:15px;">
@@ -188,7 +212,7 @@ function price_quote_display () {
                             <label for=""><strong>Date of Birth</strong></label>
                             
                             <input type="date" name="" onblur="dateFormat(this)" data-date-format="MMDDYYYY" id="" class="form-control" value="" required="required" title=""><br>
-                            <input type="text" name="date_of_birth" onblur="dateFormat(this)" data-date-format="MMDDYYYY" id="date_of_birth" class="form-control" value="" required="required" title=""><br>
+                            <input style="display:none;" type="text" name="date_of_birth" onblur="dateFormat(this)" data-date-format="MMDDYYYY" id="date_of_birth" class="form-control" value="" required="required" title=""><br>
                             
                         </div>
 
@@ -225,7 +249,7 @@ function price_quote_display () {
 
     
                     
-                        <button type="submit" class="btn btn-primary form-control" id="hippoformbtn">Submit</button>
+                        <button type="button" class="btn btn-primary form-control" onclick="hippiformSubmit()" id="hippoformbtn">Submit</button>
                     </form>
                     
 
